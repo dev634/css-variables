@@ -41,14 +41,86 @@
 				</div>
 			</header>
 			<ul class="sidebar__menu">
-				<li class="sidebar__menu-item">Background Color</li>
-				<li class="sidebar__menu-item">Layer Color</li>
-				<li class="sidebar__menu-item">Heading Title</li>
-				<li class="sidebar__menu-item">Heading Slogan</li>
-				<li class="sidebar__menu-item">CTA Settings</li>
+				<li class="sidebar__menu-item" data-key="BACKGROUND">
+					Background
+					<form id="sub__menu-1" action="">
+						<label for="bg-color">Choose a color :</label>
+						<input name="bg-color" type="color" />
+					</form>
+				</li>
+				<li
+					class="sidebar__menu-item sidebar__menu-item-2"
+					data-key="LAYER COLOR"
+				>
+					Layer Color
+					<form id="sub__menu-2" action="">
+						<label for="layer-color">Choose a color :</label>
+						<input name="layer-color" type="color" />
+						<label for="layer-opacity">Opacity :</label>
+						<input
+							name="opacity"
+							type="range"
+							min="0"
+							max="100"
+							step="1"
+							value="50"
+						/>
+					</form>
+				</li>
+				<li
+					class="sidebar__menu-item sidebar__menu-item-3"
+					data-key="HEADING TITLE"
+				>
+					Heading Title
+					<form id="sub__menu-3" action="">
+						<label for="ft-size">Font-size :</label>
+						<input
+							name="ft-size"
+							type="range"
+							min="0.5"
+							max="5"
+							step="0.25"
+						/>
+					</form>
+				</li>
+				<li
+					class="sidebar__menu-item sidebar__menu-item-4"
+					data-key="HEADING SLOGAN"
+				>
+					Heading Slogan
+					<form id="sub__menu-4" action="">
+						<label for="slogan-size">Font-size :</label>
+						<input
+							name="slogan-size"
+							type="range"
+							min="0.5"
+							max="5"
+							step="0.25"
+						/>
+					</form>
+				</li>
+				<li
+					class="sidebar__menu-item sidebar__menu-item-5"
+					data-key="CTA SETTINGS"
+				>
+					CTA Settings
+					<form id="sub__menu-3" action="">
+						<label for="button-color-1">Button color 1 :</label>
+						<input name="button-color-1" type="color" />
+						<label for="button-color-2">Button color 2 :</label>
+						<input name="button-color-2" type="color" />
+					</form>
+				</li>
 			</ul>
 		</div>
-		<main class="content-wrapper"></main>
+		<main class="content-wrapper">
+			<section class="heading">
+				<header>
+					<h1 class="heading-title">hello les noobs</h1>
+					<p class="slogan"></p>
+				</header>
+			</section>
+		</main>
 		<script src="assets/js/index.js"></script>
 	</body>
 </html>
