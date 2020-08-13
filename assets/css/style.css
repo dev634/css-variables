@@ -3,7 +3,13 @@
 	--black: #202020;
 	--white: #dedede;
 	--spacing: 10px;
-	--wrapper-bg: #c7c7c7;
+	--wrapper-bg: #dedede;
+	--wrapper-pd: 1rem;
+	--wrapper-bg: #dedede;
+	--wrapper-height: 200px;
+	--header-bg: "";
+	--header-width: 100%;
+	--header-height: 100%;
 }
 
 html,
@@ -12,7 +18,13 @@ main,
 div,
 ul,
 li,
-form {
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -25,14 +37,15 @@ li {
 html {
 	font-family: "AbrilFatface-Regular";
 	width: 100vw;
-	height: 100vh;
+	height: auto;
 	overflow-x: hidden;
+	overflow-y: scroll;
 }
 
 body {
 	display: flex;
 	justify-content: flex-start;
-	width: 100vw;
+	width: 100%;
 }
 
 form {
@@ -52,15 +65,18 @@ label {
 	margin-top: 1rem;
 }
 
-input[type="color"] {
+input[type="color"],
+input[type="file"] {
 	margin-top: 0.5rem;
 }
 .sidebar {
+	position: absolute;
+	left: -240px;
+	width: 300px;
 	display: flex;
 	flex-direction: column;
 	padding: 10px 10px;
-	width: 60px;
-	height: auto;
+	min-height: 100vh;
 	background-color: var(--black);
 	box-shadow: 5px 0 15px rgba(10, 10, 10, 0.75);
 	transition: all 1s ease-in-out;
@@ -90,7 +106,7 @@ input[type="color"] {
 }
 
 .sidebar__menu-item {
-	font-size: 1.125rem;
+	font-size: 1rem;
 	letter-spacing: 2px;
 	padding: 1rem 10px;
 	border-bottom: 1px solid rgba(10, 10, 10, 0.5);
@@ -105,14 +121,14 @@ input[type="color"] {
 	align-items: center;
 	width: 40px;
 	height: 40px;
-	border: 1px solid #cdcdcd;
+	border: 1px solid #dedede;
 	border-radius: 5px;
 }
 
 .btn__line {
 	height: 2px;
 	width: 75%;
-	background-color: #cdcdcd;
+	background-color: var(--wrapper-bg);
 }
 
 .btn:hover {
@@ -128,12 +144,24 @@ input[type="color"] {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: var(--spacing);
-	flex-shrink: 1;
-	flex-grow: 0;
-	min-height: 100vh;
-	width: calc(100% - 76px);
+	padding: var(--wrapper-pd);
+	margin-left: 60px;
+	height: var(--wrapper-height);
+	width: 100%;
 	background-color: var(--wrapper-bg);
+	transition: margin-left 1s ease-in-out;
+}
+
+.content-wrapper header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-image: var(--header-bg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	width: var(--header-width);
+	height: var(--header-height);
 }
 
 .layer {
@@ -143,9 +171,13 @@ input[type="color"] {
 	width: 100%;
 	height: 100%;
 }
+.is-reduce {
+	margin-left: 300px;
+	margin-right: 16px;
+}
 
 .is-clicked {
-	width: 20%;
+	left: 0;
 }
 
 .is-open {

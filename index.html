@@ -42,28 +42,59 @@
 			</header>
 			<ul class="sidebar__menu">
 				<li class="sidebar__menu-item" data-key="BACKGROUND">
-					Background
+					Wrapper
 					<form id="sub__menu-1" action="">
-						<label for="bg-color">Choose a color :</label>
-						<input name="bg-color" type="color" />
+						<label for="wrapper-bg">Choose a color :</label>
+						<input name="wrapper-bg" type="color" value="#24c9db" />
+						<label for="wrapper-pd">Padding :</label>
+						<input
+							name="wrapper-pd"
+							type="range"
+							min="0"
+							max="5"
+							step="1"
+							value="0"
+							data-sizing="rem"
+						/>
+						<label for="wrapper-height">Height :</label>
+						<input
+							name="wrapper-height"
+							type="range"
+							min="40"
+							max="800"
+							step="10"
+							value="40"
+							data-sizing="px"
+						/>
 					</form>
 				</li>
 				<li
 					class="sidebar__menu-item sidebar__menu-item-2"
 					data-key="LAYER COLOR"
 				>
-					Layer Color
+					Header
 					<form id="sub__menu-2" action="">
-						<label for="layer-color">Choose a color :</label>
-						<input name="layer-color" type="color" />
-						<label for="layer-opacity">Opacity :</label>
+						<label for="header-img"> Background image :</label>
+						<input type="file" name="header-img" id="header-img" />
+						<label for="header-width"> Header width :</label>
 						<input
-							name="opacity"
 							type="range"
-							min="0"
+							name="header-width"
+							id="header-width"
+							min="50"
 							max="100"
-							step="1"
-							value="50"
+							value="100"
+							data-sizing="%"
+						/>
+						<label for="header-height"> Header height :</label>
+						<input
+							type="range"
+							name="header-height"
+							id="header-height"
+							min="50"
+							max="100"
+							value="100"
+							data-sizing="%"
 						/>
 					</form>
 				</li>
@@ -114,12 +145,10 @@
 			</ul>
 		</div>
 		<main class="content-wrapper">
-			<section class="heading">
-				<header>
-					<h1 class="heading-title">hello les noobs</h1>
-					<p class="slogan"></p>
-				</header>
-			</section>
+			<header>
+				<h1 class="heading-title">hello world</h1>
+				<p class="slogan"></p>
+			</header>
 		</main>
 		<script src="assets/js/index.js"></script>
 	</body>
