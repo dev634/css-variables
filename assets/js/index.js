@@ -8,6 +8,10 @@ const menu_items = document.querySelectorAll(".sidebar__menu-item");
 const color_picker = document.querySelectorAll('input[type="color"]');
 const range_input = document.querySelectorAll('input[type="range"]');
 const header_image = document.querySelector("input[name='header-img']");
+const header_title = document.querySelector("input[name='heading-title']");
+const header_slogan = document.querySelector("input[name='heading-slogan']");
+const layer_color = document.querySelector("input[name='layer-color']");
+const layer_opacity = document.querySelector("input[name='layer-opacity']");
 
 function init(e) {
 	e.preventDefault();
@@ -28,6 +32,40 @@ function init(e) {
 		"--wrapper-height",
 		wrapper_height.value + "px"
 	);
+	document.documentElement.style.setProperty(
+		"--heading-title",
+		header_title.value + "rem"
+	);
+	document.documentElement.style.setProperty(
+		"--heading-slogan",
+		header_slogan.value + "rem"
+	);
+	document.documentElement.style.setProperty(
+		"--layer-color",
+		layer_color.value
+	);
+	document.documentElement.style.setProperty(
+		"--layer-opacity",
+		layer_opacity.value
+	);
+}
+
+function listenInputFile(e) {
+	console.log(e.target);
+}
+
+function handleFiles(e) {
+	let tgt = e.target.files[0];
+	if (FileReader && tgt && e.target.files.length) {
+		let fr = new FileReader();
+		fr.onload = function () {
+			document.documentElement.style.setProperty(
+				"--header-bg",
+				`url('${fr.result}')`
+			);
+		};
+		fr.readAsDataURL(tgt);
+	}
 }
 
 function handleChange(e) {
@@ -117,21 +155,7 @@ color_picker.forEach(listenInput);
 range_input.forEach(listenInput);
 range_input.forEach(listenChange);
 
-header_image.addEventListener("input", function (e) {
-	document.documentElement.style.setProperty(
-		"--header-bg",
-		`url('${e.target.value}')`
-	);
-	let tgt = e.target.files[0];
-	if (FileReader && e.target.files[0] && e.target.files.length) {
-		let fr = new FileReader();
-		fr.onload = function () {
-			document.documentElement.style.setProperty(
-				"--header-bg",
-				`url('${fr.result}')`
-			);
-			console.log(fr);
-		};
-		console.log(fr.readAsDataURL(tgt));
-	}
+header_image.addEventListener("click", function (e) {
+	e.stopPropagation();
+	e.target.addEventListener("input", handleFiles);
 });

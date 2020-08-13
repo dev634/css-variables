@@ -10,6 +10,10 @@
 	--header-bg: "";
 	--header-width: 100%;
 	--header-height: 100%;
+	--heading-title: "";
+	--heading-slogan: "";
+	--layer-color: "";
+	--layer-opacity: 1;
 }
 
 html,
@@ -141,6 +145,7 @@ input[type="file"] {
 }
 
 .content-wrapper {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -154,6 +159,7 @@ input[type="file"] {
 
 .content-wrapper header {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	background-image: var(--header-bg);
@@ -164,13 +170,27 @@ input[type="file"] {
 	height: var(--header-height);
 }
 
+.content-wrapper header h1 {
+	font-size: var(--heading-title);
+	z-index: 10;
+}
+
+.content-wrapper header p {
+	font-size: var(--heading-slogan);
+	z-index: 10;
+	color: #dedede;
+}
+
 .layer {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
+	background-color: var(--layer-color);
+	opacity: var(--layer-opacity);
 }
+
 .is-reduce {
 	margin-left: 300px;
 	margin-right: 16px;
