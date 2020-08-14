@@ -12,6 +12,7 @@ const header_title = document.querySelector("input[name='heading-title']");
 const header_slogan = document.querySelector("input[name='heading-slogan']");
 const layer_color = document.querySelector("input[name='layer-color']");
 const layer_opacity = document.querySelector("input[name='layer-opacity']");
+const labels = document.querySelectorAll("label");
 
 function init(e) {
 	e.preventDefault();
@@ -50,8 +51,14 @@ function init(e) {
 	);
 }
 
-function listenInputFile(e) {
-	console.log(e.target);
+function handleEvent(e) {
+	switch (e.type) {
+		case "click":
+			console.log("i am clicked");
+			break;
+		default:
+			break;
+	}
 }
 
 function handleFiles(e) {
@@ -158,4 +165,10 @@ range_input.forEach(listenChange);
 header_image.addEventListener("click", function (e) {
 	e.stopPropagation();
 	e.target.addEventListener("input", handleFiles);
+});
+
+labels.forEach(elmt => {
+	elmt.addEventListener("click", function (e) {
+		e.stopPropagation();
+	});
 });
