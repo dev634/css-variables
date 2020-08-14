@@ -281,6 +281,7 @@ input[type="file"] {
 
 .content-wrapper header h1 {
 	font-size: var(--heading-title);
+	color: #dedede;
 	z-index: 10;
 }
 
